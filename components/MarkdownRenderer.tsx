@@ -2,6 +2,9 @@
 'use client';
 import React, { ReactNode } from 'react';
 import { FaInfoCircle, FaLightbulb, FaExclamationTriangle, FaExclamationCircle } from 'react-icons/fa';
+import { MdOutlineMarkUnreadChatAlt } from "react-icons/md";
+import { BsExclamationOctagonFill } from "react-icons/bs";
+
 
 type AlertType = 'note' | 'tip' | 'important' | 'warning';
 
@@ -14,15 +17,17 @@ export const Alert: React.FC<AlertProps> = ({ type, children }) => {
   const alertStyles = {
     note: 'bg-blue-100 border-l-4 border-blue-500 text-blue-700',
     tip: 'bg-green-100 border-l-4 border-green-500 text-green-700',
-    important: 'bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700',
-    warning: 'bg-red-100 border-l-4 border-red-500 text-red-700',
+    important: 'bg-purple-100 border-l-4 border-purple-500 text-purple-700',
+    warning: 'bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700',
+    caution: 'bg-red-100 border-l-4 border-red-500 text-red-700',
   };
 
   const icons = {
     note: <FaInfoCircle className="text-blue-500" />,
     tip: <FaLightbulb className="text-green-500" />,
-    important: <FaExclamationCircle className="text-yellow-500" />,
-    warning: <FaExclamationTriangle className="text-red-500" />,
+    important: <MdOutlineMarkUnreadChatAlt className="text-purple-500" />,
+    warning: <FaExclamationTriangle className="text-yellow-500" />,
+    caution: <BsExclamationOctagonFill className="text-red-500" />,
   };
 
   return (
