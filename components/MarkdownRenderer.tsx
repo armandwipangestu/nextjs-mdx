@@ -1,13 +1,8 @@
+// components/MarkdownRenderer.tsx
 'use client';
 import React, { ReactNode } from 'react';
-import {
-  FaInfoCircle,
-  FaLightbulb,
-  FaExclamationTriangle,
-  FaExclamationCircle,
-} from 'react-icons/fa';
+import { FaInfoCircle, FaLightbulb, FaExclamationTriangle, FaExclamationCircle } from 'react-icons/fa';
 
-// Define types for the alert types and props
 type AlertType = 'note' | 'tip' | 'important' | 'warning';
 
 interface AlertProps {
@@ -24,16 +19,19 @@ export const Alert: React.FC<AlertProps> = ({ type, children }) => {
   };
 
   const icons = {
-    note: <FaInfoCircle className="mr-2" />,
-    tip: <FaLightbulb className="mr-2" />,
-    important: <FaExclamationCircle className="mr-2" />,
-    warning: <FaExclamationTriangle className="mr-2" />,
+    note: <FaInfoCircle className="text-blue-500" />,
+    tip: <FaLightbulb className="text-green-500" />,
+    important: <FaExclamationCircle className="text-yellow-500" />,
+    warning: <FaExclamationTriangle className="text-red-500" />,
   };
 
   return (
-    <div className={`flex items-start p-4 rounded my-4 ${alertStyles[type]}`}>
-      {icons[type]}
-      <div>{children}</div>
+    <div className={`flex flex-col p-4 rounded my-4 ${alertStyles[type]}`}>
+      <div className="flex items-center mb-2">
+        {icons[type]}
+        <span className="font-semibold capitalize text-sm ml-2">{type}</span>
+      </div>
+      <div className="text-black">{children}</div>
     </div>
   );
 };
